@@ -18,17 +18,23 @@ const SearchDiv = styled.div`
   flex-direction: column;
   justify-content: center;
   position: relative;
+  background: white;
+  margin-top: 15px;
+  border-radius: 10px;
 
 `
 const SearchInput = styled.input`
-  margin-top: 15px;
+  
   width: 100%;
   height: 50px;
   background: white;
   border-radius: 10px;
-  border: 1px solid pink;
+  border: none;
+  outline: none;
   font-size: 16px;
   color: black;
+  padding: 0 60px 0 40px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
 `
 const Img = styled.img`
   height: 32px;
@@ -38,9 +44,24 @@ const Icon = styled.div`
   right: 0;
   position: absolute;
   line-height: 55px;
+  text-align: center;
 `
 const SuggestionBox = styled.div`
-  color: white;
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
+
+`
+const Li = styled.li`
+  list-style: none;
+  padding: 8px 12px;
+  width: 100%;
+  cursor: default;
+  border-radius: 10px;
+  display: none;
+  &:hover {
+    background: #efefef;
+  }
 `
 const Home: NextPage = () => {
   return (
@@ -48,12 +69,12 @@ const Home: NextPage = () => {
       <SearchDiv>
         <SearchInput type="text" placeholder='Search..'/>
           <SuggestionBox>
-            <li>Apple</li>
-            <li>Banana</li>
-            <li>Corn</li>
+            <Li>Apple</Li>
+            <Li>Banana</Li>
+            <Li>Corn</Li>
           </SuggestionBox>
           <Icon>
-            <Img src="../icons/search.png"/>
+            
           </Icon>
       </SearchDiv>
     </PageDiv>
